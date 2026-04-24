@@ -1,0 +1,16 @@
+{
+  "name": "vagus-nerve-daily-report",
+  "version": "1.0.0",
+  "description": "Vagus Nerve Research Daily Report - automated PubMed literature digest",
+  "type": "module",
+  "scripts": {
+    "fetch": "node scripts/fetch_papers.mjs",
+    "report": "node scripts/generate_report.mjs",
+    "index": "node scripts/generate_index.mjs",
+    "build": "node scripts/fetch_papers.mjs && node scripts/generate_report.mjs && node scripts/generate_index.mjs"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "dependencies": {}
+}
