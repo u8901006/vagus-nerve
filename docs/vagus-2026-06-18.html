@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Vagus Nerve Daily &middot; 迷走神經文獻日報 &middot; 2026年6月18日</title>
+<meta name="description" content="2026年6月18日 迷走神經文獻日報，由 AI 自動彙整 PubMed 最新論文"/>
+<style>
+  :root { --bg: #f6f1e8; --surface: #fffaf2; --line: #d8c5ab; --text: #2b2118; --muted: #766453; --accent: #8c4f2b; --accent-soft: #ead2bf; --card-bg: color-mix(in srgb, var(--surface) 92%, white); }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: radial-gradient(circle at top, #fff6ea 0, var(--bg) 55%, #ead8c6 100%); color: var(--text); font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif; min-height: 100vh; overflow-x: hidden; }
+  .container { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 60px 32px 80px; }
+  header { display: flex; align-items: center; gap: 16px; margin-bottom: 52px; animation: fadeDown 0.6s ease both; }
+  .logo { width: 48px; height: 48px; border-radius: 14px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; box-shadow: 0 4px 20px rgba(140,79,43,0.25); }
+  .header-text h1 { font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
+  .header-meta { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; align-items: center; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; letter-spacing: 0.3px; }
+  .badge-date { background: var(--accent-soft); border: 1px solid var(--line); color: var(--accent); }
+  .badge-count { background: rgba(140,79,43,0.06); border: 1px solid var(--line); color: var(--muted); }
+  .badge-source { background: transparent; color: var(--muted); font-size: 11px; padding: 0 4px; }
+  .summary-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 28px 32px; margin-bottom: 32px; box-shadow: 0 20px 60px rgba(61,36,15,0.06); animation: fadeUp 0.5s ease 0.1s both; }
+  .summary-card h2 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.6px; color: var(--accent); margin-bottom: 16px; }
+  .summary-text { font-size: 15px; line-height: 1.8; color: var(--text); }
+  .section { margin-bottom: 36px; animation: fadeUp 0.5s ease both; }
+  .section-title { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .section-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; background: var(--accent-soft); }
+  .news-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 22px 26px; margin-bottom: 12px; box-shadow: 0 8px 30px rgba(61,36,15,0.04); transition: background 0.2s, border-color 0.2s, transform 0.2s; }
+  .news-card:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .news-card.featured { border-left: 3px solid var(--accent); }
+  .news-card.featured:hover { border-color: var(--accent); }
+  .card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .rank-badge { background: var(--accent); color: #fff7f0; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 6px; }
+  .emoji-icon { font-size: 18px; }
+  .card-header-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .emoji-sm { font-size: 14px; }
+  .news-card h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; line-height: 1.5; }
+  .journal-source { font-size: 12px; color: var(--accent); margin-bottom: 8px; opacity: 0.8; }
+  .news-card p { font-size: 13.5px; line-height: 1.75; color: var(--muted); }
+  .card-footer { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .tag { padding: 2px 9px; background: var(--accent-soft); border-radius: 999px; font-size: 11px; color: var(--accent); }
+  .news-card a { font-size: 12px; color: var(--accent); text-decoration: none; opacity: 0.7; margin-left: auto; }
+  .news-card a:hover { opacity: 1; }
+  .utility-high { color: #5a7a3a; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(90,122,58,0.1); border-radius: 4px; }
+  .utility-mid { color: #9f7a2e; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(159,122,46,0.1); border-radius: 4px; }
+  .utility-low { color: var(--muted); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(118,100,83,0.08); border-radius: 4px; }
+  .utility-sm { font-size: 10px; }
+  .pico-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; padding: 12px; background: rgba(255,253,249,0.8); border-radius: 14px; border: 1px solid var(--line); }
+  .pico-item { display: flex; gap: 8px; align-items: baseline; }
+  .pico-label { font-size: 10px; font-weight: 700; color: #fff7f0; background: var(--accent); padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }
+  .pico-text { font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .keywords-section { margin-bottom: 36px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .keyword { padding: 5px 14px; background: var(--accent-soft); border: 1px solid var(--line); border-radius: 20px; font-size: 12px; color: var(--accent); cursor: default; transition: background 0.2s; }
+  .keyword:hover { background: rgba(140,79,43,0.18); }
+  .topic-section { margin-bottom: 36px; }
+  .topic-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .topic-name { font-size: 13px; color: var(--muted); width: 120px; flex-shrink: 0; text-align: right; }
+  .topic-bar-bg { flex: 1; height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+  .topic-bar { height: 100%; background: linear-gradient(90deg, var(--accent), #c47a4a); border-radius: 4px; transition: width 0.6s ease; }
+  .topic-count { font-size: 12px; color: var(--accent); width: 24px; }
+  .link-banner { margin-top: 16px; animation: fadeUp 0.5s ease 0.4s both; }
+  .link-card { display: flex; align-items: center; gap: 14px; padding: 18px 24px; background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; text-decoration: none; color: var(--text); transition: all 0.2s; box-shadow: 0 8px 30px rgba(61,36,15,0.04); }
+  .link-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .link-icon { font-size: 28px; flex-shrink: 0; }
+  .link-name { font-size: 15px; font-weight: 700; color: var(--text); flex: 1; }
+  .link-desc { font-size: 12px; color: var(--muted); }
+  .link-arrow { font-size: 18px; color: var(--accent); font-weight: 700; }
+  footer { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 11.5px; color: var(--muted); display: flex; justify-content: space-between; animation: fadeUp 0.5s ease 0.5s both; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 600px) { .container { padding: 36px 18px 60px; } .summary-card, .news-card { padding: 20px 18px; } .pico-grid { grid-template-columns: 1fr; } footer { flex-direction: column; gap: 6px; text-align: center; } .topic-name { width: 80px; font-size: 11px; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo">🫀</div>
+    <div class="header-text">
+      <h1>Vagus Nerve Daily &middot; 迷走神經文獻日報</h1>
+      <div class="header-meta">
+        <span class="badge badge-date">📅 2026年6月18日（週四）</span>
+        <span class="badge badge-count">📊 39 篇文獻</span>
+        <span class="badge badge-source">Powered by PubMed + Zhipu AI</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="summary-card">
+    <h2>📋 今日文獻趨勢</h2>
+    <p class="summary-text">今日文獻呈現「迷走神經從基礎到臨床的完整轉譯鏈」：從神經迴路發育、阿茲海默症化學遺傳學，到難治性憂鬱症 VNS 臨床試驗與纖維肌痛症小纖維病變，顯示迷走神經調節正從癲癇擴展至精神神經與慢性疼痛領域；同時 HRV 作為生物標誌物在情緒調節治療、青少年憂鬱症追蹤中的預測價值持續被驗證。</p>
+  </div>
+
+  <div class="section"><div class="section-title"><span class="section-icon">⭐</span>今日精選 TOP Picks</div>
+    <div class="news-card featured">
+      <div class="card-header">
+        <span class="rank-badge">#1</span>
+        <span class="emoji-icon">🧠</span>
+        <span class="utility-mid">中實用性</span>
+      </div>
+      <h3>迷走神經背運動核的化學遺傳刺激緩解阿茲海默症樣疾病大鼠的自律神經功能障礙與記憶衰退</h3>
+      <p class="journal-source">Acta physiologica (Oxford, England) &middot; Chemogenetic Stimulation of the Dorsal Motor Nucleus of the Vagus Mitigates Autonomic Dysfunction and Memory Decline in Rat Model of Alzheimer-Like Disease.</p>
+      <p>首次以化學遺傳學精準激活迷走神經背運動核，同時改善阿茲海默症大鼠模型的自律神經失調與認知功能衰退，為迷走神經調節作為神經退化性疾病治療靶點提供關鍵機制證據。</p>
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">阿茲海默症樣疾病大鼠模型</span></div>
+        <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">化學遺傳學刺激迷走神經背運動核（DMV）</span></div>
+        <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">對照組大鼠</span></div>
+        <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">自律神經功能改善、記憶衰退減緩、類澱粉病理改變</span></div>
+      </div>
+      <div class="card-footer">
+        <span class="tag">迷走神經刺激</span><span class="tag">神經調節</span><span class="tag">神經科學</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42178898/" target="_blank">閱讀原文 →</a>
+      </div>
+    </div>
+    <div class="news-card featured">
+      <div class="card-header">
+        <span class="rank-badge">#2</span>
+        <span class="emoji-icon">💜</span>
+        <span class="utility-high">高實用性</span>
+      </div>
+      <h3>評估極度難治性憂鬱症患者的症狀嚴重度：來自 RECOVER 試驗的見解</h3>
+      <p class="journal-source">Journal of affective disorders &middot; Assessing symptom severity in patients with markedly treatment-resistant depression: Insights from the RECOVER trial.</p>
+      <p>RECOVER 試驗以項目反應理論分析 VNS 治療難治性憂鬱症的量表特性，發現 MADRS 與 QIDS 在偵測重度症狀變化上各有優劣，直接影響未來 VNS 臨床試驗的終點選擇。</p>
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">極度難治性憂鬱症患者</span></div>
+        <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">VNS 迷走神經刺激治療</span></div>
+        <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">基線與治療後追蹤</span></div>
+        <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">MADRS 與 QIDS 量表的心理計量特性與症狀偵測靈敏度</span></div>
+      </div>
+      <div class="card-footer">
+        <span class="tag">迷走神經刺激</span><span class="tag">憂鬱症</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/41707715/" target="_blank">閱讀原文 →</a>
+      </div>
+    </div>
+    <div class="news-card featured">
+      <div class="card-header">
+        <span class="rank-badge">#3</span>
+        <span class="emoji-icon">📊</span>
+        <span class="utility-high">高實用性</span>
+      </div>
+      <h3>階段性心率變異度變化預測廣泛性焦慮症合併憂鬱症患者接受情緒調節治療後的臨床結果</h3>
+      <p class="journal-source">Behavior therapy &middot; Changes in Phasic Heart Rate Variability Predict Clinical Outcomes Following Emotion Regulation Therapy for Generalized Anxiety Disorder and Comorbid Depression.</p>
+      <p>發現情緒調節治療過程中「階段性 HRV 變化」而非靜態基線值能預測治療結果，暗示迷走神經恢復彈性是心理治療療效的關鍵生理機制。</p>
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">廣泛性焦慮症合併憂鬱症患者</span></div>
+        <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">情緒調節治療（ERT）</span></div>
+        <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">治療反應者 vs. 未反應者</span></div>
+        <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">階段性 HRV 變化與治療後焦慮/憂鬱症狀減輕的關聯</span></div>
+      </div>
+      <div class="card-footer">
+        <span class="tag">心率變異度</span><span class="tag">焦慮症</span><span class="tag">憂鬱症</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42276683/" target="_blank">閱讀原文 →</a>
+      </div>
+    </div>
+    <div class="news-card featured">
+      <div class="card-header">
+        <span class="rank-badge">#4</span>
+        <span class="emoji-icon">🌱</span>
+        <span class="utility-high">高實用性</span>
+      </div>
+      <h3>迷走神經迴路的經驗依賴性發展：囓齒動物與人類研究</h3>
+      <p class="journal-source">Neuroscience and biobehavioral reviews &middot; Experience-dependent development of vagal circuitry in rodents and humans.</p>
+      <p>系統性回顧跨物種證據，證實迷走神經迴路發展深受早期經驗塑造，將 polyvagal theory 的發展假說推向更具體的神經生物學機制，連結早期逆境與終身身心健康。</p>
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">囓齒動物與人類（跨物種整合）</span></div>
+        <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">早期環境經驗（照護品質、壓力暴露等）</span></div>
+        <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">不同早期經驗組別比較</span></div>
+        <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">迷走神經迴路發展指標（HRV、迷走神經張力）與後續心理病理風險</span></div>
+      </div>
+      <div class="card-footer">
+        <span class="tag">迷走神經刺激</span><span class="tag">心率變異度</span><span class="tag">兒童逆境</span><span class="tag">神經科學</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42097245/" target="_blank">閱讀原文 →</a>
+      </div>
+    </div>
+    <div class="news-card featured">
+      <div class="card-header">
+        <span class="rank-badge">#5</span>
+        <span class="emoji-icon">🔥</span>
+        <span class="utility-high">高實用性</span>
+      </div>
+      <h3>纖維肌痛症候群的自律神經功能障礙：小纖維損傷的角色</h3>
+      <p class="journal-source">Clinical neurophysiology &middot; Autonomic dysfunction in fibromyalgia syndrome: the role of small fiber damage.</p>
+      <p>以皮膚切片確認纖維肌痛症患者存在小纖維病變，且與 HRV 量化之自律神經功能障礙顯著相關，挑戰過去「純功能性」觀點，指向具體的神經病變機制。</p>
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">纖維肌痛症候群患者</span></div>
+        <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">皮膚切片小纖維評估 + 心血管自律神經功能檢測</span></div>
+        <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">健康對照組</span></div>
+        <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">小纖維密度與 HRV 指標的相關性、自律神經功能障礙程度</span></div>
+      </div>
+      <div class="card-footer">
+        <span class="tag">自律神經失調</span><span class="tag">慢性疼痛</span><span class="tag">心率變異度</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/41990407/" target="_blank">閱讀原文 →</a>
+      </div>
+    </div>
+    <div class="news-card featured">
+      <div class="card-header">
+        <span class="rank-badge">#6</span>
+        <span class="emoji-icon">🌙</span>
+        <span class="utility-high">高實用性</span>
+      </div>
+      <h3>青少年重鬱症臨床症狀與自律神經恢復的分歧：10 週夜間心電圖追蹤研究</h3>
+      <p class="journal-source">Journal of affective disorders &middot; Divergence of clinical and autonomic recovery in adolescent major depressive disorder: A 10-week prospective heart rate variability study with nocturnal electrocardiogram monitoring.</p>
+      <p>青少年憂鬱症治療後症狀改善與 HRV 恢復出現顯著「分歧現象」，意味著臨床緩解不代表自律神經功能正常化，可能解釋青少年憂鬱症的高復發率。</p>
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">青少年重鬱症患者</span></div>
+        <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">常規精神科治療 + 10 週夜間心電圖監測</span></div>
+        <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">治療前後比較</span></div>
+        <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">臨床症狀評分變化 vs. 夜間 HRV 指標變化的時間軸分歧</span></div>
+      </div>
+      <div class="card-footer">
+        <span class="tag">心率變異度</span><span class="tag">憂鬱症</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42107656/" target="_blank">閱讀原文 →</a>
+      </div>
+    </div>
+    <div class="news-card featured">
+      <div class="card-header">
+        <span class="rank-badge">#7</span>
+        <span class="emoji-icon">🫁</span>
+        <span class="utility-high">高實用性</span>
+      </div>
+      <h3>慢呼吸並非總是更好：慢節律呼吸增強心率變異度但對情緒反應與記憶產生年齡差異效應</h3>
+      <p class="journal-source">International journal of psychophysiology &middot; Breathing slower is not always better: Slow-paced breathing enhances heart rate variability but produces age-differential effects on emotional reactivity and memory.</p>
+      <p>雖然慢呼吸確實提升 HRV，但對情緒調節與記憶的效益因年齡而異，打破「慢呼吸普遍有益」的假設，對臨床處方呼吸訓練頻率具有重要指導意義。</p>
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">不同年齡層健康成人</span></div>
+        <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">慢節律呼吸訓練</span></div>
+        <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">自發呼吸對照</span></div>
+        <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">HRV 變化量、情緒反應性、情緒記憶表現（按年齡分層分析）</span></div>
+      </div>
+      <div class="card-footer">
+        <span class="tag">心率變異度</span><span class="tag">呼吸訓練</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42173198/" target="_blank">閱讀原文 →</a>
+      </div>
+    </div>
+    <div class="news-card featured">
+      <div class="card-header">
+        <span class="rank-badge">#8</span>
+        <span class="emoji-icon">🤲</span>
+        <span class="utility-high">高實用性</span>
+      </div>
+      <h3>經皮電神經刺激對慢性中風患者認知功能與上肢運動功能的影響：隨機對照試驗</h3>
+      <p class="journal-source">GeroScience &middot; Effects of transcutaneous electrical nerve stimulation on cognitive function and upper limb motor function in people with chronic stroke: a randomized controlled trial.</p>
+      <p>經皮脊髓刺激合併經皮迷走神經刺激（taVNS）顯著改善慢性中風老人的認知與上肢功能，為非侵入性神經調節在腦中風後復健的應用提供隨機對照試驗證據。</p>
+      <div class="pico-grid">
+        <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">慢性期腦中風患者</span></div>
+        <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">經皮電神經刺激（含經皮迷走神經刺激）</span></div>
+        <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">偽刺激對照組</span></div>
+        <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">認知功能評分、上肢運動功能評分</span></div>
+      </div>
+      <div class="card-footer">
+        <span class="tag">迷走神經刺激</span><span class="tag">神經調節</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42287562/" target="_blank">閱讀原文 →</a>
+      </div>
+    </div></div>
+
+  <div class="section"><div class="section-title"><span class="section-icon">📚</span>其他值得關注的文獻</div>
+    <div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">🍽️</span>
+        <span class="utility-low utility-sm">低</span>
+      </div>
+      <h3>飲食行為人類研究中的情緒誘發技術與心理生理反應：近期研究系統性回顧</h3>
+      <p class="journal-source">Appetite</p>
+      <p>系統回顧飲食行為研究中情緒誘發範式與自律神經反應的量測方法學。</p>
+      <div class="card-footer">
+        <span class="tag">壓力</span><span class="tag">肥胖與食慾</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42303103/" target="_blank">PubMed →</a>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">🫂</span>
+        <span class="utility-mid utility-sm">中</span>
+      </div>
+      <h3>孤獨情境下年輕人的韌性：靜息與挑戰狀態下自律神經活動的調節角色</h3>
+      <p class="journal-source">Biological psychology</p>
+      <p>高頻率 HRV 在孤獨壓力下作為心理韌性的生理緩衝因子。</p>
+      <div class="card-footer">
+        <span class="tag">心率變異度</span><span class="tag">社交決定因子</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42302916/" target="_blank">PubMed →</a>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">💓</span>
+        <span class="utility-mid utility-sm">中</span>
+      </div>
+      <h3>姿勢性心搏過速症候群如何影響兒科患者？</h3>
+      <p class="journal-source">Nursing</p>
+      <p>探討 POTS 對青少年患者的多面向影響與護理考量。</p>
+      <div class="card-footer">
+        <span class="tag">自律神經失調</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42299763/" target="_blank">PubMed →</a>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">🪑</span>
+        <span class="utility-mid utility-sm">中</span>
+      </div>
+      <h3>辦公室工作者慢性下背痛與中樞敏化之相關因素：多維度分析</h3>
+      <p class="journal-source">Journal of bodywork and movement therapies</p>
+      <p>辨識辦公室族群慢性下背痛合併中樞敏化的生活型態與心理因素。</p>
+      <div class="card-footer">
+        <span class="tag">慢性疼痛</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42264783/" target="_blank">PubMed →</a>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">📡</span>
+        <span class="utility-low utility-sm">低</span>
+      </div>
+      <h3>5G 射頻暴露對健康年輕成人的生理效應：心率變異度與唾液壓力生物標誌物的見解</h3>
+      <p class="journal-source">Bioelectromagnetics</p>
+      <p>評估 5G 射頻暴露對 HRV 與壓力激素的急性影響。</p>
+      <div class="card-footer">
+        <span class="tag">心率變異度</span><span class="tag">壓力</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42244435/" target="_blank">PubMed →</a>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">⚖️</span>
+        <span class="utility-low utility-sm">低</span>
+      </div>
+      <h3>自律神經功能指標與感覺運動表現是否相關？</h3>
+      <p class="journal-source">Perceptual and motor skills</p>
+      <p>探討自律神經 profile 與平衡、運動控制等感覺運動表現的關聯。</p>
+      <div class="card-footer">
+        <span class="tag">自律神經失調</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42273785/" target="_blank">PubMed →</a>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">🧒</span>
+        <span class="utility-mid utility-sm">中</span>
+      </div>
+      <h3>兒童虐待中皮質醇與心血管反應性的關聯變化</h3>
+      <p class="journal-source">Psychoneuroendocrinology</p>
+      <p>兒童虐待經驗改變了 HPA 軸與心血管自律神經反應之間的耦合模式。</p>
+      <div class="card-footer">
+        <span class="tag">兒童逆境</span><span class="tag">壓力</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42214945/" target="_blank">PubMed →</a>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">🔬</span>
+        <span class="utility-low utility-sm">低</span>
+      </div>
+      <h3>迷走神經刺激配對聲音改變雷特氏症大鼠聽覺皮層蛋白質體</h3>
+      <p class="journal-source">Developmental neurobiology</p>
+      <p>VNS 配對感官刺激在雷特氏症模型中誘發聽覺皮層蛋白質組重塑。</p>
+      <div class="card-footer">
+        <span class="tag">迷走神經刺激</span><span class="tag">神經科學</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42063247/" target="_blank">PubMed →</a>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">🌍</span>
+        <span class="utility-mid utility-sm">中</span>
+      </div>
+      <h3>非裔美國年輕成人的心血管困局：情緒調節策略與社經地位之種族差異</h3>
+      <p class="journal-source">International journal of psychophysiology</p>
+      <p>揭示情緒調節策略與社經地位對心血管反應的影響存在顯著種族差異。</p>
+      <div class="card-footer">
+        <span class="tag">心率變異度</span><span class="tag">社交決定因子</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42002042/" target="_blank">PubMed →</a>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">⌚</span>
+        <span class="utility-high utility-sm">高</span>
+      </div>
+      <h3>脈搏率變異度不等同心率變異度：對運動表現與傷害預防的意涵</h3>
+      <p class="journal-source">Sports medicine - open</p>
+      <p>明確區分光電容積脈波（PPG）的 PRV 與心電圖的 HRV，警告可穿戴裝置數據誤用風險。</p>
+      <div class="card-footer">
+        <span class="tag">心率變異度</span><span class="tag">運動與恢復</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42286401/" target="_blank">PubMed →</a>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">🍬</span>
+        <span class="utility-mid utility-sm">中</span>
+      </div>
+      <h3>下視丘 POMC 神經元透過腸腦迴路調節腸道葡萄糖吸收</h3>
+      <p class="journal-source">Nature communications</p>
+      <p>揭示下視丘 POMC 神經元經由迷走神經傳出路徑直接調節腸道葡萄糖吸收的新迴路。</p>
+      <div class="card-footer">
+        <span class="tag">腦腸軸</span><span class="tag">營養與代謝</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42277019/" target="_blank">PubMed →</a>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">👶</span>
+        <span class="utility-high utility-sm">高</span>
+      </div>
+      <h3>IBD 與 IBS 兒童的胃肌電活動與自律神經功能障礙：胃電圖與自律神經相關性研究</h3>
+      <p class="journal-source">Autonomic neuroscience : basic & clinical</p>
+      <p>IBD 與 IBS 兒童均呈現胃電圖異常與自律神經功能障礙，但模式不同，有助鑑別診斷。</p>
+      <div class="card-footer">
+        <span class="tag">發炎性腸道疾病</span><span class="tag">腸躁症</span><span class="tag">自律神經失調</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42302324/" target="_blank">PubMed →</a>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">🧊</span>
+        <span class="utility-low utility-sm">低</span>
+      </div>
+      <h3>功能性消化不良的冷感覺與胃容受性：自律神經功能的探索性研究</h3>
+      <p class="journal-source">Digestion</p>
+      <p>探討功能性消化不良患者冷覺異常與胃容受性之間的自律神經調節機制。</p>
+      <div class="card-footer">
+        <span class="tag">腦腸軸</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42275274/" target="_blank">PubMed →</a>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">💊</span>
+        <span class="utility-mid utility-sm">中</span>
+      </div>
+      <h3>每日他達拉非改善非器質性勃起功能障礙男性之心臟自律神經調節：前瞻性心率變異度研究</h3>
+      <p class="journal-source">Sexual medicine</p>
+      <p>PDE5 抑制劑除改善症狀外，亦顯著提升 HRV，暗示自律神經改善可能為其機制之一。</p>
+      <div class="card-footer">
+        <span class="tag">心率變異度</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42125416/" target="_blank">PubMed →</a>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">👀</span>
+        <span class="utility-low utility-sm">低</span>
+      </div>
+      <h3>壓力-近視路徑：近視病理發生中的關鍵樞紐</h3>
+      <p class="journal-source">Neuroscience and biobehavioral reviews</p>
+      <p>提出慢性壓力透過交感-腎上腺髓質系統與 HPA 軸促進近視的整合假說，並探討 VNS 作為介入可能。</p>
+      <div class="card-footer">
+        <span class="tag">壓力</span><span class="tag">迷走神經刺激</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/41933675/" target="_blank">PubMed →</a>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">🏔️</span>
+        <span class="utility-low utility-sm">低</span>
+      </div>
+      <h3>高海拔環境下休閒運動員的運動誘發自律神經與心肺壓力</h3>
+      <p class="journal-source">High altitude medicine & biology</p>
+      <p>量化高海拔運動時 HRV 與心肺耦合的動態變化，提供高山運動安全監測參考。</p>
+      <div class="card-footer">
+        <span class="tag">心率變異度</span><span class="tag">運動與恢復</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42308123/" target="_blank">PubMed →</a>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">🎧</span>
+        <span class="utility-mid utility-sm">中</span>
+      </div>
+      <h3>雙耳節拍對多發性硬化症患者急性壓力恢復與自律神經調節的影響：雙盲隨機對照試驗</h3>
+      <p class="journal-source">Neurological sciences</p>
+      <p>雙耳節拍促進多發性硬化症患者壓力後的 HRV 恢復與皮質醇下降。</p>
+      <div class="card-footer">
+        <span class="tag">心率變異度</span><span class="tag">壓力</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42307797/" target="_blank">PubMed →</a>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">⚖️</span>
+        <span class="utility-mid utility-sm">中</span>
+      </div>
+      <h3>亞洲年輕大學生肥胖指標與心率變異度的關聯：橫斷性研究</h3>
+      <p class="journal-source">Cardiology research and practice</p>
+      <p>各項肥胖指標（體脂率、BMI 等）與 HRV 降低呈顯著負相關，支持肥胖損害自律神經功能。</p>
+      <div class="card-footer">
+        <span class="tag">心率變異度</span><span class="tag">肥胖與食慾</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42290965/" target="_blank">PubMed →</a>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">🧘‍♀️</span>
+        <span class="utility-high utility-sm">高</span>
+      </div>
+      <h3>普拉提訓練與高血壓女性動態血壓降低及自律神經反射反應性增強的關聯</h3>
+      <p class="journal-source">Journal of hypertension</p>
+      <p>普拉提訓練透過提升 HRV 與內皮功能降低高血壓女性 24 小時動態血壓。</p>
+      <div class="card-footer">
+        <span class="tag">心率變異度</span><span class="tag">運動與恢復</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42201655/" target="_blank">PubMed →</a>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">🔍</span>
+        <span class="utility-mid utility-sm">中</span>
+      </div>
+      <h3>身體症狀障礙症的模式導向心率變異度方法：來自 SOMA.SSD 研究的證據</h3>
+      <p class="journal-source">Journal of psychosomatic research</p>
+      <p>以 HRV 模式分析區分身體症狀障礙症亞型，發現不同自律神經表型對應不同症狀群。</p>
+      <div class="card-footer">
+        <span class="tag">心率變異度</span><span class="tag">自律神經失調</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42302632/" target="_blank">PubMed →</a>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">🫁</span>
+        <span class="utility-mid utility-sm">中</span>
+      </div>
+      <h3>肝/胰臟迷走神經支配分歧：移植後內分泌恢復被遺忘的關鍵？</h3>
+      <p class="journal-source">World journal of transplantation</p>
+      <p>探討肝臟與胰臟迷走神經支配的差異性，以及神經再生對移植後代謝功能的影響。</p>
+      <div class="card-footer">
+        <span class="tag">迷走神經刺激</span><span class="tag">營養與代謝</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42281852/" target="_blank">PubMed →</a>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">🫀</span>
+        <span class="utility-mid utility-sm">中</span>
+      </div>
+      <h3>心血管疾病的肌肉代謝反射功能障礙</h3>
+      <p class="journal-source">American journal of physiology. Heart and circulatory physiology</p>
+      <p>心衰竭患者肌肉代謝反射過度激活導致運動不耐，與自律神經失調密切相關。</p>
+      <div class="card-footer">
+        <span class="tag">運動與恢復</span><span class="tag">自律神經失調</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42294636/" target="_blank">PubMed →</a>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">🧊</span>
+        <span class="utility-low utility-sm">低</span>
+      </div>
+      <h3>冰漿攝入前期與中期冷卻：對適溫環境下高强度間歇運動後 48 小時恢復的影響</h3>
+      <p class="journal-source">Journal of thermal biology</p>
+      <p>冰漿冷卻策略透過改善 HRV 恢復曲線加速高强度運動後的自律神經恢復。</p>
+      <div class="card-footer">
+        <span class="tag">心率變異度</span><span class="tag">運動與恢復</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42296701/" target="_blank">PubMed →</a>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">📈</span>
+        <span class="utility-mid utility-sm">中</span>
+      </div>
+      <h3>單純高血壓中碎片化 QRS 的臨床意義：與心室心律不整負荷及自律神經功能障礙的關聯</h3>
+      <p class="journal-source">Journal of electrocardiology</p>
+      <p>碎片化 QRS 與 HRV 降低及心室心律不整負荷相關，可作為高血壓患者自律神經損害的簡便篩檢指標。</p>
+      <div class="card-footer">
+        <span class="tag">心率變異度</span><span class="tag">自律神經失調</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/41967389/" target="_blank">PubMed →</a>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">🌿</span>
+        <span class="utility-low utility-sm">低</span>
+      </div>
+      <h3>牡丹根皮提取物透過抑制腸道壞死性凋亡與膠質細胞活化緩解 DSS 誘發性結腸炎的腸腦軸功能障礙</h3>
+      <p class="journal-source">Inflammopharmacology</p>
+      <p>牡丹皮提取物經由腸腦軸機制同時改善腸道發炎與中樞神經發炎。</p>
+      <div class="card-footer">
+        <span class="tag">腦腸軸</span><span class="tag">發炎</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42307828/" target="_blank">PubMed →</a>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">🦠</span>
+        <span class="utility-low utility-sm">低</span>
+      </div>
+      <h3>腸道微生物群與免疫調節：在神經退化性疾病與癌症中的角色</h3>
+      <p class="journal-source">Molecular biology reports</p>
+      <p>回顧腸道微生物透過免疫調節影響神經退化與腫瘤的機制。</p>
+      <div class="card-footer">
+        <span class="tag">腦腸軸</span><span class="tag">微生態</span><span class="tag">免疫</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42307649/" target="_blank">PubMed →</a>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">🧫</span>
+        <span class="utility-mid utility-sm">中</span>
+      </div>
+      <h3>跨越界域的微生物關聯特徵化腸躁症患者冀便微生物移植的反應性</h3>
+      <p class="journal-source">Journal of translational medicine</p>
+      <p>細菌-病毒跨界微生物網路特徵可預測 IBS 患者 FMT 治療反應。</p>
+      <div class="card-footer">
+        <span class="tag">腸躁症</span><span class="tag">微生態</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42298631/" target="_blank">PubMed →</a>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">🎯</span>
+        <span class="utility-mid utility-sm">中</span>
+      </div>
+      <h3>超越症狀：重鬱症抗憂鬱劑結果的早期預測生物標誌物</h3>
+      <p class="journal-source">Current neuropharmacology</p>
+      <p>綜述 HRV、發炎標誌物等生物指標在抗憂鬱劑療效早期預測中的潛力。</p>
+      <div class="card-footer">
+        <span class="tag">憂鬱症</span><span class="tag">心率變異度</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42304910/" target="_blank">PubMed →</a>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">〰️</span>
+        <span class="utility-low utility-sm">低</span>
+      </div>
+      <h3>變異性即控制：跨生理情境重新思考心室復極化動力學</h3>
+      <p class="journal-source">The Journal of physiology</p>
+      <p>提出心室復極化變異性反映自律神經主動調控而非雜訊的新觀點。</p>
+      <div class="card-footer">
+        <span class="tag">神經科學</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42304610/" target="_blank">PubMed →</a>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">🫀</span>
+        <span class="utility-mid utility-sm">中</span>
+      </div>
+      <h3>心房顫動中的發炎路徑：機制與新治療靶點</h3>
+      <p class="journal-source">European heart journal</p>
+      <p>系統梳理發炎在心房顫動發病中的角色及潛在抗發炎治療靶點。</p>
+      <div class="card-footer">
+        <span class="tag">發炎</span><span class="tag">免疫</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/41879137/" target="_blank">PubMed →</a>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="card-header-row">
+        <span class="emoji-sm">⏰</span>
+        <span class="utility-mid utility-sm">中</span>
+      </div>
+      <h3>限時進食與運動對久坐老年人的心代謝健康影響：隨機對照試驗</h3>
+      <p class="journal-source">Medicine and science in sports and exercise</p>
+      <p>限時進食合併運動顯著改善老年人心代謝指標，優於單一介入。</p>
+      <div class="card-footer">
+        <span class="tag">營養與代謝</span><span class="tag">運動與恢復</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/41806970/" target="_blank">PubMed →</a>
+      </div>
+    </div></div>
+
+  <div class="topic-section section"><div class="section-title"><span class="section-icon">📊</span>主題分佈</div><div class="topic-row">
+      <span class="topic-name">心率變異度</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+      <span class="topic-count">14</span>
+    </div><div class="topic-row">
+      <span class="topic-name">迷走神經刺激</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:36%"></div></div>
+      <span class="topic-count">5</span>
+    </div><div class="topic-row">
+      <span class="topic-name">自律神經失調</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:43%"></div></div>
+      <span class="topic-count">6</span>
+    </div><div class="topic-row">
+      <span class="topic-name">憂鬱症</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:29%"></div></div>
+      <span class="topic-count">4</span>
+    </div><div class="topic-row">
+      <span class="topic-name">腦腸軸</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:29%"></div></div>
+      <span class="topic-count">4</span>
+    </div><div class="topic-row">
+      <span class="topic-name">慢性疼痛</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:14%"></div></div>
+      <span class="topic-count">2</span>
+    </div><div class="topic-row">
+      <span class="topic-name">運動與恢復</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:43%"></div></div>
+      <span class="topic-count">6</span>
+    </div><div class="topic-row">
+      <span class="topic-name">兒童逆境</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:14%"></div></div>
+      <span class="topic-count">2</span>
+    </div><div class="topic-row">
+      <span class="topic-name">壓力</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:29%"></div></div>
+      <span class="topic-count">4</span>
+    </div><div class="topic-row">
+      <span class="topic-name">社交決定因子</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:14%"></div></div>
+      <span class="topic-count">2</span>
+    </div><div class="topic-row">
+      <span class="topic-name">發炎性腸道疾病</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:7%"></div></div>
+      <span class="topic-count">1</span>
+    </div><div class="topic-row">
+      <span class="topic-name">腸躁症</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:14%"></div></div>
+      <span class="topic-count">2</span>
+    </div><div class="topic-row">
+      <span class="topic-name">肥胖與食慾</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:14%"></div></div>
+      <span class="topic-count">2</span>
+    </div><div class="topic-row">
+      <span class="topic-name">呼吸訓練</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:7%"></div></div>
+      <span class="topic-count">1</span>
+    </div><div class="topic-row">
+      <span class="topic-name">神經調節</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:14%"></div></div>
+      <span class="topic-count">2</span>
+    </div><div class="topic-row">
+      <span class="topic-name">營養與代謝</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:21%"></div></div>
+      <span class="topic-count">3</span>
+    </div><div class="topic-row">
+      <span class="topic-name">微生態</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:14%"></div></div>
+      <span class="topic-count">2</span>
+    </div><div class="topic-row">
+      <span class="topic-name">發炎</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:14%"></div></div>
+      <span class="topic-count">2</span>
+    </div><div class="topic-row">
+      <span class="topic-name">免疫</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:14%"></div></div>
+      <span class="topic-count">2</span>
+    </div><div class="topic-row">
+      <span class="topic-name">焦慮症</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:7%"></div></div>
+      <span class="topic-count">1</span>
+    </div><div class="topic-row">
+      <span class="topic-name">神經科學</span>
+      <div class="topic-bar-bg"><div class="topic-bar" style="width:21%"></div></div>
+      <span class="topic-count">3</span>
+    </div></div>
+
+  <div class="keywords-section section"><div class="section-title"><span class="section-icon">🏷️</span>關鍵字</div><div class="keywords"><span class="keyword">迷走神經刺激</span><span class="keyword">心率變異度</span><span class="keyword">自律神經失調</span><span class="keyword">情緒調節</span><span class="keyword">腦腸軸</span><span class="keyword">慢性疼痛</span><span class="keyword">神經調節</span><span class="keyword">呼吸訓練</span></div></div>
+
+  <div class="link-banner">
+    <a href="https://www.leepsyclinic.com/" class="link-card" target="_blank">
+      <span class="link-icon">🏥</span>
+      <div><span class="link-name">李政洋身心診所首頁</span></div>
+      <span class="link-arrow">→</span>
+    </a>
+  </div>
+  <div class="link-banner" style="margin-top:12px">
+    <a href="https://blog.leepsyclinic.com/" class="link-card" target="_blank">
+      <span class="link-icon">📬</span>
+      <div><span class="link-name">訂閱電子報</span><br/><span class="link-desc">收到最新的身心醫學知識</span></div>
+      <span class="link-arrow">→</span>
+    </a>
+  </div>
+  <div class="link-banner" style="margin-top:12px">
+    <a href="https://buymeacoffee.com/CYlee" class="link-card" target="_blank">
+      <span class="link-icon">☕</span>
+      <div><span class="link-name">Buy Me a Coffee</span><br/><span class="link-desc">支持迷走神經文獻日報持續運作</span></div>
+      <span class="link-arrow">→</span>
+    </a>
+  </div>
+
+  <footer>
+    <span>資料來源：PubMed &middot; 分析模型：GLM-5-Turbo</span>
+    <span><a href="https://github.com/u8901006/vagus-nerve">GitHub</a></span>
+  </footer>
+</div>
+</body>
+</html>
