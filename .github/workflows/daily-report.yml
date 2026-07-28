@@ -72,12 +72,9 @@ jobs:
             echo "No papers found"
           fi
 
-      - name: Generate report with Zhipu AI
+      - name: Generate report with NVIDIA AI
         env:
-          ZHIPU_API_KEY: ${{ secrets.ZHIPU_API_KEY }}
-          ZHIPU_API_BASE: ${{ vars.ZHIPU_API_BASE }}
-          ZHIPU_TIMEOUT: "660000"
-          ZHIPU_MAX_TOKENS: "100000"
+          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
           PAPERS_OUTPUT: "papers.json"
           REPORT_OUTPUT: "docs/vagus-${{ steps.date.outputs.target }}.html"
         run: node scripts/generate_report.mjs

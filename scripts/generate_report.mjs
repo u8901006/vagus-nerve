@@ -2,10 +2,10 @@
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { dirname } from "node:path";
 
-const API_BASE = process.env.ZHIPU_API_BASE || "https://open.bigmodel.cn/api/coding/paas/v4";
-const MODELS = ["GLM-5-Turbo", "GLM-4.7", "GLM-4.7-Flash"];
-const TIMEOUT = parseInt(process.env.ZHIPU_TIMEOUT || "660000", 10);
-const MAX_TOKENS = parseInt(process.env.ZHIPU_MAX_TOKENS || "100000", 10);
+const API_BASE = "https://integrate.api.nvidia.com/v1";
+const MODELS = ["nvidia/nemotron-3-super-120b-a12b", "nvidia/nemotron-3-nano-30b-a3b"];
+const TIMEOUT = 660000;
+const MAX_TOKENS = 16384;
 const INPUT = process.env.PAPERS_OUTPUT || "papers.json";
 const OUTPUT = process.env.REPORT_OUTPUT || "";
 
@@ -98,16 +98,18 @@ function tryParseJson(text) {
   return JSON.parse(cleaned);
 }
 
-async function callZhipu(apiKey, model, prompt) {
+async function callNvidia(apiKey, model, prompt) {
   const payload = {
     model,
     messages: [
       { role: "system", content: SYSTEM_PROMPT },
       { role: "user", content: prompt },
     ],
-    temperature: 0.3,
-    top_p: 0.9,
+    temperature: 1.0,
+    top_p: 0.95,
     max_tokens: MAX_TOKENS,
+    stream: false,
+    chat_template_kwargs: { enable_thinking: false },
   };
 
   const resp = await fetch(`${API_BASE}/chat/completions`, {
@@ -141,7 +143,7 @@ async function analyzeWithRetry(apiKey, prompt) {
     for (let attempt = 1; attempt <= 3; attempt++) {
       try {
         console.error(`[INFO] Trying ${model} (attempt ${attempt})...`);
-        const raw = await callZhipu(apiKey, model, prompt);
+        const raw = await callNvidia(apiKey, model, prompt);
         const parsed = tryParseJson(raw);
         console.error(
           `[INFO] Analysis complete: ${parsed.top_picks?.length || 0} top picks, ${parsed.all_papers?.length || 0} total`
@@ -328,7 +330,7 @@ function generateHtml(analysis) {
       <div class="header-meta">
         <span class="badge badge-date">📅 ${dateDisplay}（週${wd}）</span>
         <span class="badge badge-count">📊 ${totalCount} 篇文獻</span>
-        <span class="badge badge-source">Powered by PubMed + Zhipu AI</span>
+        <span class="badge badge-source">Powered by PubMed + NVIDIA AI</span>
       </div>
     </div>
   </header>
@@ -378,9 +380,9 @@ function generateHtml(analysis) {
 }
 
 async function main() {
-  const apiKey = process.env.ZHIPU_API_KEY || "";
+  const apiKey = process.env.NVIDIA_API_KEY || "";
   if (!apiKey) {
-    console.error("[ERROR] ZHIPU_API_KEY not set");
+    console.error("[ERROR] NVIDIA_API_KEY not set");
     process.exit(1);
   }
 
