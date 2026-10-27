@@ -3,7 +3,7 @@ import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { dirname } from "node:path";
 
 const API_BASE = "https://integrate.api.nvidia.com/v1";
-const MODELS = ["nvidia/nemotron-3-super-120b-a12b", "nvidia/nemotron-3-nano-30b-a3b"];
+const MODELS = ["nvidia/nemotron-3-ultra-550b-a55b"];
 const TIMEOUT = 660000;
 const MAX_TOKENS = 16384;
 const INPUT = process.env.PAPERS_OUTPUT || "papers.json";
