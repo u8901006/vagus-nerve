@@ -3,8 +3,8 @@ import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { dirname } from "node:path";
 
 const API_BASE = "https://integrate.api.nvidia.com/v1";
-const MODELS = ["nvidia/nemotron-3-ultra-550b-a55b"];
-const TIMEOUT = 660000;
+const MODELS = ["nvidia/nemotron-3.5-lightning-30b-a3b", "google/gemma-4-31b-it"];
+const TIMEOUT = 180000;
 const MAX_TOKENS = 16384;
 const INPUT = process.env.PAPERS_OUTPUT || "papers.json";
 const OUTPUT = process.env.REPORT_OUTPUT || "";
@@ -105,11 +105,11 @@ async function callNvidia(apiKey, model, prompt) {
       { role: "system", content: SYSTEM_PROMPT },
       { role: "user", content: prompt },
     ],
-    temperature: 1.0,
-    top_p: 0.95,
+    temperature: model.startsWith('google/') ? 0.5 : 1.0,
+    top_p: model.startsWith('google/') ? 1 : 0.95,
     max_tokens: MAX_TOKENS,
     stream: false,
-    chat_template_kwargs: { enable_thinking: false },
+    ...(model.startsWith('nvidia/') ? { chat_template_kwargs: { enable_thinking: false } } : {}),
   };
 
   const resp = await fetch(`${API_BASE}/chat/completions`, {
