@@ -1,6 +1,11 @@
 name: Vagus Nerve Daily Report
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/generate_report.mjs"
+      - ".github/workflows/daily-report.yml"
   schedule:
     - cron: "10 23 * * *" # UTC 23:10 = 台北時間 07:10
   workflow_dispatch:
